@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<EmBlocks_project_file>
+	<EmBlocksVersion release="1.31" revision="2" />
+	<FileVersion major="1" minor="0" />
+	<Project>
+		<Option title="vcp_rtos" />
+		<Option pch_mode="2" />
+		<Option compiler="armgcc_eb" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin\Debug\vcp_rtos.elf" />
+				<Option object_output="obj\Debug\" />
+				<Option type="0" />
+				<Option compiler="armgcc_eb" />
+				<Option projectDeviceOptionsRelation="0" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-O0" />
+					<Add option="-g3" />
+					<Add option="-D__DONT_INIT_VTABLE" />
+					<Add directory="Inc" />
+					<Add directory="lib\cmsis\inc" />
+					<Add directory="lib\STM32_USB_Device_Library\Class\cdc\inc" />
+					<Add directory="lib\STM32_USB_Device_Library\Core\inc" />
+					<Add directory="lib\STM32_USB_OTG_Driver\inc" />
+					<Add directory="lib\stm32f4xx_stdperiph_driver\inc" />
+					<Add directory="freertos\inc" />
+				</Compiler>
+				<Assembler>
+					<Add option="-Wa,--gdwarf-2" />
+				</Assembler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin\Release\vcp_rtos.elf" />
+				<Option object_output="obj\Release\" />
+				<Option type="0" />
+				<Option create_hex="1" />
+				<Option compiler="armgcc_eb" />
+				<Option projectDeviceOptionsRelation="0" />
+				<Device>
+					<Add option="$device=cortex-m4" />
+					<Add option="$fpu=fpv4-sp-d16" />
+					<Add option="$lscript=stm32f4_flash.ld" />
+				</Device>
+				<Compiler>
+					<Add option="-fdata-sections" />
+					<Add option="-ffunction-sections" />
+					<Add option="-O2" />
+					<Add option="-g2" />
+					<Add directory="Inc" />
+					<Add directory="lib\cmsis\inc" />
+					<Add directory="lib\STM32_USB_Device_Library\Class\cdc\inc" />
+					<Add directory="lib\STM32_USB_Device_Library\Core\inc" />
+					<Add directory="lib\STM32_USB_OTG_Driver\inc" />
+					<Add directory="lib\stm32f4xx_stdperiph_driver\inc" />
+					<Add directory="freertos\inc" />
+				</Compiler>
+				<Assembler>
+					<Add option="-Wa,--no-warn" />
+					<Add option="-Wa,--gdwarf-2" />
+				</Assembler>
+				<Linker>
+					<Add option="-Wl,--gc-sections" />
+				</Linker>
+			</Target>
+		</Build>
+		<Device>
+			<Add option="$device=cortex-m4" />
+			<Add option="$fpu=fpv4-sp-d16" />
+			<Add option="$lscript=stm32f4_flash.ld" />
+		</Device>
+		<Compiler>
+			<Add option="-mfloat-abi=softfp" />
+			<Add option="-DARM_MATH_CM4" />
+			<Add option="-D__FPU_USED" />
+			<Add option="-DSTM32F4XX" />
+			<Add option="-DUSE_STDPERIPH_DRIVER" />
+			<Add option="-DUSE_STM32F4_DISCOVER" />
+			<Add option="-DUSE_USB_OTG_FS" />
+			<Add option="-DSCHAR_MAX=127" />
+			<Add option="-DSHRT_MAX=32767" />
+			<Add directory=".\Inc" />
+			<Add directory="cmsis\inc" />
+			<Add directory="freertos\inc" />
+			<Add directory="STM32_USB_Device_Library\Class\cdc\inc" />
+			<Add directory="STM32_USB_Device_Library\Core\inc" />
+			<Add directory="STM32_USB_OTG_Driver\inc" />
+			<Add directory="stm32f4xx_stdperiph_driver\inc" />
+		</Compiler>
+		<Linker>
+			<Add option="-eb_start_files" />
+		</Linker>
+		<Unit filename="Inc\defs.h" />
+		<Unit filename="Inc\stm32f4xx.h" />
+		<Unit filename="Inc\system_stm32f4xx.h" />
+		<Unit filename="Inc\usb_conf.h" />
+		<Unit filename="Inc\usbd_cdc_vcp.h" />
+		<Unit filename="Inc\usbd_conf.h" />
+		<Unit filename="Inc\usbd_desc.h" />
+		<Unit filename="Src\main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Src\startup_stm32f4xx.S">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Src\stm32f4_discovery.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Src\stm32f4xx_it.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Src\system_stm32f4xx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Src\uc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Src\usb_bsp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Src\usbd_cdc_vcp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Src\usbd_desc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Src\usbd_usr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cmsis\inc\arm_common_tables.h" />
+		<Unit filename="cmsis\inc\arm_math.h" />
+		<Unit filename="cmsis\inc\core_cm0.h" />
+		<Unit filename="cmsis\inc\core_cm3.h" />
+		<Unit filename="cmsis\inc\core_cm4.h" />
+		<Unit filename="cmsis\inc\core_cm4_simd.h" />
+		<Unit filename="cmsis\inc\core_cmFunc.h" />
+		<Unit filename="cmsis\inc\core_cmInstr.h" />
+		<Unit filename="freertos\inc\FreeRTOS.h" />
+		<Unit filename="freertos\inc\StackMacros.h" />
+		<Unit filename="freertos\inc\list.h" />
+		<Unit filename="freertos\inc\mpu_wrappers.h" />
+		<Unit filename="freertos\inc\portable.h" />
+		<Unit filename="freertos\inc\portmacro.h" />
+		<Unit filename="freertos\inc\projdefs.h" />
+		<Unit filename="freertos\inc\queue.h" />
+		<Unit filename="freertos\inc\semphr.h" />
+		<Unit filename="freertos\inc\task.h" />
+		<Unit filename="freertos\inc\timers.h" />
+		<Unit filename="freertos\src\heap_2.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="freertos\src\list.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="freertos\src\port.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="freertos\src\queue.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="freertos\src\tasks.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="freertos\src\timers.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\STM32_USB_Device_Library\Class\cdc\inc\usbd_cdc_core.h" />
+		<Unit filename="lib\STM32_USB_Device_Library\Class\cdc\src\usbd_cdc_core.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\STM32_USB_Device_Library\Core\inc\usbd_conf_template.h" />
+		<Unit filename="lib\STM32_USB_Device_Library\Core\inc\usbd_core.h" />
+		<Unit filename="lib\STM32_USB_Device_Library\Core\inc\usbd_def.h" />
+		<Unit filename="lib\STM32_USB_Device_Library\Core\inc\usbd_ioreq.h" />
+		<Unit filename="lib\STM32_USB_Device_Library\Core\inc\usbd_req.h" />
+		<Unit filename="lib\STM32_USB_Device_Library\Core\inc\usbd_usr.h" />
+		<Unit filename="lib\STM32_USB_Device_Library\Core\src\usbd_core.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\STM32_USB_Device_Library\Core\src\usbd_ioreq.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\STM32_USB_Device_Library\Core\src\usbd_req.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\STM32_USB_OTG_Driver\inc\usb_bsp.h" />
+		<Unit filename="lib\STM32_USB_OTG_Driver\inc\usb_conf_template.h" />
+		<Unit filename="lib\STM32_USB_OTG_Driver\inc\usb_core.h" />
+		<Unit filename="lib\STM32_USB_OTG_Driver\inc\usb_dcd.h" />
+		<Unit filename="lib\STM32_USB_OTG_Driver\inc\usb_dcd_int.h" />
+		<Unit filename="lib\STM32_USB_OTG_Driver\inc\usb_defines.h" />
+		<Unit filename="lib\STM32_USB_OTG_Driver\inc\usb_regs.h" />
+		<Unit filename="lib\STM32_USB_OTG_Driver\src\usb_core.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\STM32_USB_OTG_Driver\src\usb_dcd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\STM32_USB_OTG_Driver\src\usb_dcd_int.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\cmsis\inc\arm_common_tables.h" />
+		<Unit filename="lib\cmsis\inc\arm_math.h" />
+		<Unit filename="lib\cmsis\inc\core_cm0.h" />
+		<Unit filename="lib\cmsis\inc\core_cm3.h" />
+		<Unit filename="lib\cmsis\inc\core_cm4.h" />
+		<Unit filename="lib\cmsis\inc\core_cm4_simd.h" />
+		<Unit filename="lib\cmsis\inc\core_cmFunc.h" />
+		<Unit filename="lib\cmsis\inc\core_cmInstr.h" />
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\inc\misc.h" />
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\inc\stm32f4xx_adc.h" />
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\inc\stm32f4xx_can.h" />
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\inc\stm32f4xx_crc.h" />
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\inc\stm32f4xx_cryp.h" />
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\inc\stm32f4xx_dac.h" />
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\inc\stm32f4xx_dbgmcu.h" />
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\inc\stm32f4xx_dcmi.h" />
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\inc\stm32f4xx_dma.h" />
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\inc\stm32f4xx_exti.h" />
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\inc\stm32f4xx_flash.h" />
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\inc\stm32f4xx_fsmc.h" />
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\inc\stm32f4xx_gpio.h" />
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\inc\stm32f4xx_hash.h" />
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\inc\stm32f4xx_i2c.h" />
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\inc\stm32f4xx_iwdg.h" />
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\inc\stm32f4xx_pwr.h" />
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\inc\stm32f4xx_rcc.h" />
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\inc\stm32f4xx_rng.h" />
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\inc\stm32f4xx_rtc.h" />
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\inc\stm32f4xx_sdio.h" />
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\inc\stm32f4xx_spi.h" />
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\inc\stm32f4xx_syscfg.h" />
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\inc\stm32f4xx_tim.h" />
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\inc\stm32f4xx_usart.h" />
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\inc\stm32f4xx_wwdg.h" />
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\misc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_adc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_can.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_crc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_cryp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_cryp_aes.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_cryp_des.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_cryp_tdes.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_dac.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_dbgmcu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_dcmi.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_dma.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_exti.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_flash.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_fsmc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_gpio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_hash.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_hash_md5.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_hash_sha1.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_i2c.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_iwdg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_pwr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_rcc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_rng.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_rtc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_sdio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_spi.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_syscfg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_tim.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_usart.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="lib\stm32f4xx_stdperiph_driver\src\stm32f4xx_wwdg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="readme.txt" />
+		<Unit filename="stm32f4_flash.ld" />
+		<Extensions>
+			<code_completion />
+			<debugger>
+				<target_debugging_settings target="Release" active_interface="ST-link">
+					<debug_interface interface_id="ST-link" ip_address="localhost" ip_port="4242" path="${EMBLOCKS}\share\contrib" executable="STLinkGDB.exe" description="" dont_start_server="false" backoff_time="1000" options="0" active_family="STMicroelectronics">
+						<family_options family_id="STMicroelectronics">
+							<option opt_id="ID_JTAG_SWD" opt_value="swd" />
+							<option opt_id="ID_VECTOR_START" opt_value="0x08000000" />
+							<option opt_id="ID_LOAD_PROGRAM" opt_value="1" />
+							<option opt_id="ID_SEMIHOST_CHECK" opt_value="0" />
+							<option opt_id="ID_RAM_EXEC" opt_value="0" />
+							<option opt_id="ID_VEC_TABLE" opt_value="1" />
+							<option opt_id="ID_VERBOSE_LEVEL" opt_value="3" />
+						</family_options>
+					</debug_interface>
+				</target_debugging_settings>
+				<target_debugging_settings target="Debug" active_interface="ST-link">
+					<debug_interface interface_id="ST-link" ip_address="localhost" ip_port="4242" path="${EMBLOCKS}\share\contrib" executable="STLinkGDB.exe" description="" dont_start_server="false" backoff_time="1000" options="0" active_family="STMicroelectronics">
+						<family_options family_id="STMicroelectronics">
+							<option opt_id="ID_JTAG_SWD" opt_value="swd" />
+							<option opt_id="ID_VECTOR_START" opt_value="0x08000000" />
+							<option opt_id="ID_LOAD_PROGRAM" opt_value="1" />
+							<option opt_id="ID_SEMIHOST_CHECK" opt_value="0" />
+							<option opt_id="ID_RAM_EXEC" opt_value="0" />
+							<option opt_id="ID_VEC_TABLE" opt_value="1" />
+							<option opt_id="ID_VERBOSE_LEVEL" opt_value="3" />
+						</family_options>
+					</debug_interface>
+				</target_debugging_settings>
+			</debugger>
+			<envvars />
+		</Extensions>
+	</Project>
+</EmBlocks_project_file>
